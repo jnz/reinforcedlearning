@@ -1,5 +1,4 @@
 import gym
-
 from stable_baselines3 import DQN
 from stable_baselines3.common.evaluation import evaluate_policy
 
@@ -7,17 +6,16 @@ from stable_baselines3.common.evaluation import evaluate_policy
 model_name = 'jan-ppo-lunar-lander-v2_dqn_2M'
 model = DQN.load(model_name)
 
-# Test the trained model
+# Create environment
 eval_env = gym.make("LunarLander-v2")
 
-# Enjoy trained agent
+# Run the model in the environment
 obs = eval_env.reset()
 cumulative_reward = 0
 for i in range(1000):
     action, _states = model.predict(obs, deterministic=True)
     obs, rewards, dones, info = eval_env.step(action)
     eval_env.render()
-    #print rewards
     cumulative_reward = cumulative_reward + rewards
     print(f"Step {i}: action={action}, reward={rewards}, done={dones}, info={info}")
     if dones == True:

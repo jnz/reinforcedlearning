@@ -1,5 +1,4 @@
 import gym
-
 from stable_baselines3 import PPO
 from stable_baselines3.common.evaluation import evaluate_policy
 
@@ -7,17 +6,16 @@ from stable_baselines3.common.evaluation import evaluate_policy
 model_name = 'jan-ppo-lunar-lander-v3'
 model = PPO.load(model_name)
 
-# Test the trained agent
+# Create environment
 eval_env = gym.make("LunarLander-v2")
 
-# Run the model for a few steps
+# Run the model in the environment
 obs = eval_env.reset()
 cumulative_reward = 0
 for i in range(1000):
     action, _states = model.predict(obs, deterministic=True)
     obs, rewards, dones, info = eval_env.step(action)
     eval_env.render()
-    #print rewards
     cumulative_reward = cumulative_reward + rewards
     print(f"Step {i}: action={action}, reward={rewards}, done={dones}, info={info}")
     if dones == True:
