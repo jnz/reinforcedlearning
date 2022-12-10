@@ -4,11 +4,21 @@ from stable_baselines3 import PPO
 from stable_baselines3.common.evaluation import evaluate_policy
 from stable_baselines3.common.env_util import make_vec_env
 
+# The key concept is that the control problem and physical world
+# is simulated with an "env" object.
+# The machine learning is done with the "model" object that is
+# trained on the "env" object.
+#
+# The key function of the env object is a simulation step with control input in
+# "action" argument with the step function:
+#   env.step(action): returns observation, reward, done, info
+
 # Create a vectorized environment (method for stacking multiple independent
 # environments into a single environment)
 env = make_vec_env('LunarLander-v2', n_envs=16)
 # Alternative:
 # env = gym.make("LunarLander-v2")
+
 
 observation = env.reset()
 
