@@ -1,8 +1,5 @@
 import gym
 
-# from huggingface_sb3 import load_from_hub, package_to_hub, push_to_hub
-# from huggingface_hub import notebook_login # To log to our Hugging Face account to be able to upload models to the Hub.
-
 from stable_baselines3 import PPO
 from stable_baselines3.common.evaluation import evaluate_policy
 
@@ -13,7 +10,7 @@ model = PPO.load(model_name)
 # Test the trained agent
 eval_env = gym.make("LunarLander-v2")
 
-# Enjoy trained agent
+# Run the model for a few steps
 obs = eval_env.reset()
 cumulative_reward = 0
 for i in range(1000):
@@ -26,7 +23,6 @@ for i in range(1000):
     if dones == True:
         break
 
-# print cumulative reward
 print(f"Cumulative reward: {cumulative_reward}")
 
 # wait until user presses enter then close the window
