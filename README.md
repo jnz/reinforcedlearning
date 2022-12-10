@@ -1,4 +1,5 @@
 Simple Python scripts for reinforced learning with SB3.
+-------------------------------------------------------
 
 Install additional packages:
 
@@ -17,6 +18,5 @@ Python packages:
     pip3 install pickle5
     pip3 install -U colabgymrender
 
-
-![Video](https://user-images.githubusercontent.com/648730/206876518-f7b13619-c913-403c-b5c2-547e7950800c.mp4)
+https://user-images.githubusercontent.com/648730/206876518-f7b13619-c913-403c-b5c2-547e7950800c.mp4
 
