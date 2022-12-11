@@ -3,7 +3,7 @@ from stable_baselines3 import PPO
 from stable_baselines3.common.evaluation import evaluate_policy
 
 # Load the PPO model from file
-model_name = 'jan-ppo-lunar-lander-v3'
+model_name = 'jan-ppo-lunar-lander-v6'
 model = PPO.load(model_name)
 
 # Create environment

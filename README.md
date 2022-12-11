@@ -48,4 +48,12 @@ Python packages:
     pip3 install pickle5
     pip3 install huggingface_sb3 # if you want to interact with the hugging face community
     
+TensorBoard
+-----------
+
+While training run TensorBoard to monitor the training progress:
+
+    tensorboard --logdir=ppo_lunar_tensorboard
+
+Open http://localhost:6006 in a browser window
 

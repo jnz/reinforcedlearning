@@ -19,7 +19,6 @@ env = make_vec_env('LunarLander-v2', n_envs=16)
 # Alternative:
 # env = gym.make("LunarLander-v2")
 
-
 observation = env.reset()
 
 print("_____OBSERVATION SPACE_____ \n")
@@ -56,19 +55,20 @@ model = PPO(
     env=env,
     verbose=1,
     n_steps=1024,
-    learning_rate=3e-4,
+    learning_rate=5e-4,
     batch_size=64,
-    n_epochs=4,
+    n_epochs=10,
     gamma=0.999,
-    gae_lambda=0.98,
+    gae_lambda=0.95,
     ent_coef=0.01,
     vf_coef=0.5,
     max_grad_norm=0.5,
+    tensorboard_log="./ppo_lunar_tensorboard/",
     device="cuda")
 
 # Train and save the model
-model.learn(total_timesteps=8000000)
-model_name = 'jan-ppo-lunar-lander-v4'
+model.learn(total_timesteps=10000000)
+model_name = 'jan-ppo-lunar-lander-v7'
 model.save(model_name)
 
 # Test the trained model
